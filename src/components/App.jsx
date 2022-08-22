@@ -1,27 +1,29 @@
+// import { render } from '@testing-library/react';
 import FeedBack from 'components/FeedBack/FeedBack';
+import React, { Component } from 'react';
+// import state from './State/State';
 
-const state = {
-  good: 1,
-  neutral: 3,
-  bad: 4,
-};
+export default class App extends Component {
+  state = {
+    good: 1,
+    neutral: 3,
+    bad: 4
+  };
 
-function countTotalFeedback(state) {
-  let totalFeedBack = 0;
+  countTotalFeedback = () => {
+    const valuesArr = Object.values(this.state);
+    return valuesArr.reduce((acc, val) => {
+      acc += val;
+      return acc;
+    });
+  };
 
-  for (let value of Object.values(state)) {
-    totalFeedBack += value;
+
+  render() {
+    return (
+      <>
+        <FeedBack statistics={this.state} countTotal={this.countTotalFeedback()} />
+      </>
+    );
   }
-
-  return (state.positiveFeedBack = totalFeedBack);
 }
-
-console.log(countTotalFeedback(state));
-
-const App = () => (
-  <>
-    <FeedBack statistics={state} />
-  </>
-);
-
-export default App;

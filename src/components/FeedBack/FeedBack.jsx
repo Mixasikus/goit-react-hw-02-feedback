@@ -17,7 +17,7 @@ export default class FeedBack extends Component {
             good={this.props.statistics.good}
             neutral={this.props.statistics.neutral}
             bad={this.props.statistics.bad}
-            positiveFeedBack={this.props.statistics.positiveFeedBack}
+            total={this.props.countTotal}
           />
         </ul>
       </div>
