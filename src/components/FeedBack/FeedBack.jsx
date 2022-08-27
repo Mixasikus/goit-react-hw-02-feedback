@@ -3,6 +3,7 @@ import Statistics from 'components/FeedBack/Statistics';
 import FeedbackOptions from 'components/FeedBack/FeedbackOptions';
 import Section from 'components/FeedBack/Section';
 import Notification from './Notification';
+import { ContainerFeedBack } from './FeedBack.module';
 
 export default class FeedBack extends Component {
   state = {
@@ -33,7 +34,7 @@ export default class FeedBack extends Component {
     const options = Object.keys(this.state);
 
     return (
-      <>
+      <ContainerFeedBack>
         <Section>
           Please leave feedback
           <FeedbackOptions
@@ -55,7 +56,7 @@ export default class FeedBack extends Component {
             <Notification message="There is no feedback" />
           )}
         </Section>
-      </>
+      </ContainerFeedBack>
     );
   }
 }

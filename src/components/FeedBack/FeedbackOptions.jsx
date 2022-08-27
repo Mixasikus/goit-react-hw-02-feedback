@@ -1,18 +1,26 @@
-import { Button } from './FeedBack.module';
+import { Button, ButtonList, ButtonListItem } from './FeedBack.module';
+import PropTypes from 'prop-types';
 
 export default function FeedbackOptions({ options, onLeaveFeedback }) {
   return (
-    <div>
+    <ButtonList>
       {options.map(option => (
-        <Button
-          key={option}
-          type="button"
-          onClick={onLeaveFeedback}
-          name={option}
-        >
-          {option}
-        </Button>
+        <ButtonListItem key={option}>
+          <Button
+            key={option}
+            type="button"
+            onClick={onLeaveFeedback}
+            name={option}
+          >
+            {option}
+          </Button>
+        </ButtonListItem>
       ))}
-    </div>
+    </ButtonList>
   );
 }
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string),
+  onLeaveFeedback: PropTypes.func.isRequired,
+};
