@@ -25,7 +25,7 @@ export default class FeedBack extends Component {
 
   onLeaveFeedback = option => {
     this.setState(state => ({
-      [option.target.name]: state[option.target.name] + 1,
+      [option]: state[option] + 1,
     }));
   };
 
